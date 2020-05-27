@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './components/Header';
+import Form from './components/Form';
 import styled from '@emotion/styled';
 
 const Container = styled.div`
@@ -16,11 +17,13 @@ function App() {
   return (
     <Container>
         <Header 
-        title='Insurance quote'
+          title='Insurance quote'
         />
 
         <ContainerForm>
-          
+          <Form 
+            
+          />
         </ContainerForm>
       
     </Container>
