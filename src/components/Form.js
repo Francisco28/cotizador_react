@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import styled from '@emotion/styled';
 
@@ -43,11 +43,34 @@ const Button = styled.button`
 `;
 
 const Form = () => {
+
+    //state - hooks
+    const [ data, saveData ] = useState({
+        brand: '',
+        year: '',
+        plan: ''
+    });
+
+    //extract state values
+    const { brand, year, plan } = data;
+
+    //read the data of form and pass to state
+    const getInformation = e => {
+        saveData({
+            ...data,
+            [e.target.name] : e.target.value
+        });
+    }
+
     return ( 
         <form>
             <Field>
                 <Label>Brand</Label>
-                <Select>
+                <Select
+                    name="brand"
+                    value={brand}
+                    onChange={getInformation}
+                >
                     <option value="">-- Select --</option>
                     <option value="american">American</option>
                     <option value="european">European</option>
@@ -57,7 +80,11 @@ const Form = () => {
 
             <Field>
                 <Label>Year</Label>
-                <Select>
+                <Select
+                    name="year"
+                    value={year}
+                    onChange={getInformation}
+                >
                     <option value="">-- Select --</option>
                     <option value="2021">2021</option>
                     <option value="2020">2020</option>
@@ -78,12 +105,16 @@ const Form = () => {
                     type="radio"
                     name="plan"
                     value="basic"
+                    check={plan === "basic"}
+                    onChange={getInformation}
                 /> Basic
 
                 <InputRadio 
                     type="radio"
                     name="plan"
                     value="complete"
+                    check={plan === "complete"}
+                    onChange={getInformation}
                 /> Complete
             </Field>
 
