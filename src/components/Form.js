@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {getDifferenceYear} from './../helper';
 
 import styled from '@emotion/styled';
 
@@ -85,9 +86,16 @@ const Form = () => {
 
         saveError(false);
 
-        //get the difference of years
+        //a base of 2000
+        let result = 2000;
 
+        //get the difference of years
+        const difference = getDifferenceYear(year);
+        
         //for every year rest the 3%
+        result -= ((difference * 3) * result) / 100;
+        console.log(result);
+
 
         //American 15%
         //Asian 5%
