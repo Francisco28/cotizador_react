@@ -1,4 +1,16 @@
 import React, { Fragment } from "react";
+import styled from '@emotion/styled';
+import { firstUppercase } from '../helper';
+
+
+const ContainerSummary = styled.div`
+    padding: 1rem;
+    text-align: center;
+    background-color: #00838F;
+    color: #FFF;
+    margin-top: 1rem;
+`;
+
 
 const Summary = ({data}) => {
 
@@ -10,14 +22,14 @@ const Summary = ({data}) => {
 
 
   return (
-    <Fragment>
-      <h2>Resumen de Quotation</h2>
+    <ContainerSummary>
+      <h2>Summary of Quotation</h2>
       <ul>
-        <li>Brand: </li>
-        <li>Plan: </li>
-        <li>Year of the car: </li>
+        <li>Brand: {firstUppercase(brand)} </li>
+        <li>Plan: {firstUppercase(plan)} </li>
+        <li>Year of the car: {year} </li>
       </ul>
-    </Fragment>
+    </ContainerSummary>
   );
 };
 
