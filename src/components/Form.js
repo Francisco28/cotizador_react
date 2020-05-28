@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {getDifferenceYear} from './../helper';
+import {getDifferenceYear, calculateBrand} from './../helper';
 
 import styled from '@emotion/styled';
 
@@ -94,12 +94,14 @@ const Form = () => {
         
         //for every year rest the 3%
         result -= ((difference * 3) * result) / 100;
-        console.log(result);
+        //console.log(result);
 
 
         //American 15%
         //Asian 5%
         //European 30%
+        result = calculateBrand(brand) * result;
+        console.log(result);
 
         //basic increases
         //complete 50%
