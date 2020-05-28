@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {getDifferenceYear, calculateBrand} from './../helper';
+import { getDifferenceYear, calculateBrand, getPlan } from './../helper';
 
 import styled from '@emotion/styled';
 
@@ -101,10 +101,13 @@ const Form = () => {
         //Asian 5%
         //European 30%
         result = calculateBrand(brand) * result;
-        console.log(result);
+        //console.log(result);
 
         //basic increases
         //complete 50%
+        const incrementPlan = getPlan(plan);
+        result = parseFloat( incrementPlan * result ).toFixed(2);
+        console.log(result);
 
         //total
     }
