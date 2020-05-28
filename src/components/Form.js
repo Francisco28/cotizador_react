@@ -34,6 +34,7 @@ const Button = styled.button`
     text-transform: uppercase;
     font-weight: bold;
     border: none;
+    border-radius: 4px;
     transition: background-color .3s ease;
     margin-top: 2rem;
 
@@ -129,7 +130,7 @@ const Form = ({saveSummary}) => {
                     value={brand}
                     onChange={getInformation}
                 >
-                    <option value="">-- Select --</option>
+                    <option value="">Select</option>
                     <option value="american">American</option>
                     <option value="european">European</option>
                     <option value="asian">Asian</option>
@@ -143,7 +144,7 @@ const Form = ({saveSummary}) => {
                     value={year}
                     onChange={getInformation}
                 >
-                    <option value="">-- Select --</option>
+                    <option value="">Select</option>
                     <option value="2021">2021</option>
                     <option value="2020">2020</option>
                     <option value="2019">2019</option>

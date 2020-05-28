@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from './components/Header';
 import Form from './components/Form';
 import Summary from './components/Summary';
+import Result from './components/Result';
 
 import styled from '@emotion/styled';
 
@@ -27,7 +28,7 @@ function App() {
   });
 
   //extract data
-  const { data } = summary;
+  const { quotation, data } = summary;
 
   return (
     <Container>
@@ -42,6 +43,10 @@ function App() {
 
           <Summary 
               data={data}
+          />
+
+          <Result 
+              quotation={quotation}
           />
         </ContainerForm>
       
