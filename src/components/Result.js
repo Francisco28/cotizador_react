@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const Message = styled.div`
     background-color: rgb(127, 224, 237);
@@ -36,7 +36,18 @@ const Result = ({quotation}) => {
             //si no cumple la condicion ejecuta esto
             :  (
                     <ResultQuotation>
-                        <TextQuotation>The total is: $ {quotation} </TextQuotation>
+                        <TransitionGroup
+                            component="p"
+                            className="resultado"
+                        >
+                            <CSSTransition
+                                classNames="resultado"
+                                key={quotation}
+                                timeout={ {enter: 500 , exit:500} }
+                            >
+                                <TextQuotation>The total is: $ {quotation} </TextQuotation>
+                            </CSSTransition>
+                        </TransitionGroup>
                     </ResultQuotation>
                 )
     )
