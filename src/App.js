@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header';
 import Form from './components/Form';
+import Summary from './components/Summary';
+
 import styled from '@emotion/styled';
 
 const Container = styled.div`
@@ -14,6 +16,19 @@ const ContainerForm = styled.div`
 `;
 
 function App() {
+
+  const [ summary, saveSummary ] = useState({
+    quotation: 0,
+    data: {
+      brand: '',
+      year: '',
+      plan: ''
+    }
+  });
+
+  //extract data
+  const { data } = summary;
+
   return (
     <Container>
         <Header 
@@ -22,7 +37,11 @@ function App() {
 
         <ContainerForm>
           <Form 
-            
+              saveSummary={saveSummary}
+          />
+
+          <Summary 
+              data={data}
           />
         </ContainerForm>
       

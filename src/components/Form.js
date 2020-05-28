@@ -53,7 +53,7 @@ const Error = styled.div`
     
 `;
 
-const Form = () => {
+const Form = ({saveSummary}) => {
 
     //state - hooks
     const [ data, saveData ] = useState({
@@ -110,6 +110,10 @@ const Form = () => {
         console.log(result);
 
         //total
+        saveSummary({
+            quotation: result,
+            data
+        });
     }
 
     return ( 
