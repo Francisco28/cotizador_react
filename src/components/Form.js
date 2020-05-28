@@ -54,7 +54,7 @@ const Error = styled.div`
     
 `;
 
-const Form = ({saveSummary}) => {
+const Form = ({saveSummary, saveLoading}) => {
 
     //state - hooks
     const [ data, saveData ] = useState({
@@ -108,13 +108,21 @@ const Form = ({saveSummary}) => {
         //complete 50%
         const incrementPlan = getPlan(plan);
         result = parseFloat( incrementPlan * result ).toFixed(2);
-        console.log(result);
+        
+        saveLoading(true);
 
-        //total
-        saveSummary({
-            quotation: result,
-            data
-        });
+        setTimeout(() => {
+            //elimina el spinner
+            saveLoading(false);
+             
+            //pasa la informacion al componente principal
+            saveSummary({
+                quotation: result,
+                data
+            });
+        }, 3000);
+
+        
     }
 
     return ( 

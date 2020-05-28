@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Form from './components/Form';
 import Summary from './components/Summary';
 import Result from './components/Result';
+import Spinner from './components/Spinner';
 
 import styled from '@emotion/styled';
 
@@ -27,6 +28,10 @@ function App() {
     }
   });
 
+  //spinner state
+  const [ loading, saveLoading ] = useState(false);
+
+
   //extract data
   const { quotation, data } = summary;
 
@@ -39,15 +44,19 @@ function App() {
         <ContainerForm>
           <Form 
               saveSummary={saveSummary}
+              saveLoading={saveLoading}
           />
+          
+          { loading ? <Spinner /> : null }
 
           <Summary 
               data={data}
           />
 
-          <Result 
-              quotation={quotation}
-          />
+          { !loading ? <Result 
+                         quotation={quotation}
+                       />
+                     : null  }
         </ContainerForm>
       
     </Container>
